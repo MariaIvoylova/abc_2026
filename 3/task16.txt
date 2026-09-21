@@ -1,0 +1,126 @@
+# todo: База данных пользователя.
+# Задан массив объектов пользователя
+
+users = [{'login': 'Piter', 'age': 23, 'group': "admin"},
+         {'login': 'Ivan',  'age': 10, 'group': "guest"},
+         {'login': 'Dasha', 'age': 30, 'group': "master"},
+         {'login': 'Fedor', 'age': 13, 'group': "guest"}]
+
+Написать фильтр который будет выводить отсортированные объекты по возрасту(больше введеного)
+,первой букве логина, и заданной группе.
+
+#Сперва вводится тип сортировки:
+1. По возрасту
+2. По первой букве
+3. По группе
+
+тип сортировки: 1
+
+#Затем сообщение для ввода
+Ввидите критерии поиска: 16
+
+Результат:
+#Пользователь: 'Piter' возраст 23 года , группа  "admin"
+#Пользователь: 'Dasha' возраст 30 лет , группа  "master"
+
+
+def increment_array(arr):
+    for i in range(len(arr)):
+        arr[i] += 1
+    return arr
+
+arr = [3, 5, -2, 0, 10, 7, 8, 1, 4, 9]
+result = increment_array(arr)
+print(result)
+Если скажешь, какой именно формат нужен (например, «обязательно менять исходный массив» или «надо вводить с клавиатуры»), могу подстроить код точнее. 😊
+
+Я
+База данных пользователя.
+# Задан массив объектов пользователя
+
+users = [{'login': 'Piter', 'age': 23, 'group': "admin"},
+{'login': 'Ivan', 'age': 10, 'group': "guest"},
+{'login': 'Dasha', 'age': 30, 'group': "master"},
+{'login': 'Fedor', 'age': 13, 'group': "guest"}]
+
+Написать фильтр который будет выводить отсортированные объекты по возрасту(больше введеного)
+,первой букве логина, и заданной группе.
+
+#Сперва вводится тип сортировки:
+1. По возрасту
+2. По первой букве
+3. По группе
+
+тип сортировки: 1
+
+#Затем сообщение для ввода
+Ввидите критерии поиска: 16
+
+Результат:
+#Пользователь: 'Piter' возраст 23 года , группа "admin"
+#Пользователь: 'Dasha' возраст 30 лет , группа "master"
+
+
+
+
+users = [
+    {'login': 'Piter', 'age': 23, 'group': "admin"},
+    {'login': 'Ivan',  'age': 10, 'group': "guest"},
+    {'login': 'Dasha', 'age': 30, 'group': "master"},
+    {'login': 'Fedor', 'age': 13, 'group': "guest"}
+]
+
+# Выбор типа сортировки
+print("Выберите тип сортировки:")
+print("1. По возрасту (больше введённого)")
+print("2. По первой букве логина")
+print("3. По группе")
+sort_type = input("Тип сортировки: ").strip()
+
+criteria = input("Введите критерии поиска: ").strip()
+
+filtered_users = []
+
+if sort_type == "1":
+    try:
+        min_age = int(criteria)
+        filtered_users = [u for u in users if u['age'] > min_age]
+        # Сортируем по возрасту (по возрастанию)
+        filtered_users.sort(key=lambda x: x['age'])
+    except ValueError:
+        print("Ошибка: возраст должен быть числом!")
+        filtered_users = []
+
+elif sort_type == "2":
+    first_letter = criteria.lower()
+    filtered_users = [u for u in users if u['login'].lower().startswith(first_letter)]
+    # Сортируем по логину
+    filtered_users.sort(key=lambda x: x['login'])
+
+elif sort_type == "3":
+    target_group = criteria
+    filtered_users = [u for u in users if u['group'] == target_group]
+    filtered_users.sort(key=lambda x: x['login'])
+else:
+    print("Неверный тип сортировки!")
+    filtered_users = []
+for user in filtered_users:
+    login = user['login']
+    age = user['age']
+    group = user['group']
+    if 11 <= age % 100 <= 19:
+        years_word = "лет"
+    else:
+        last_digit = age % 10
+        if last_digit == 1:
+            years_word = "год"
+        elif 2 <= last_digit <= 4:
+            years_word = "года"
+        else:
+            years_word = "лет"
+
+    print(f'Пользователь: \'{login}\' возраст {age} {years_word}, группа "{group}"')
+
+
+
+

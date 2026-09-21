@@ -1,0 +1,41 @@
+# todo: Определить в коде переменные:
+# 1. Целочисленного типа
+# 2. Вещественного типа
+# 3. Логического типа
+# 4. Строкового типа
+# 5. Пустого типа
+# Вывести их типы.
+
+
+1.Целочисленный тип (int)            (целое число)
+x = 62
+print(type(x))
+<class 'int'>
+
+2.Вещественный тип (float)          (дробное число)
+x = 2.1
+print(type(x))
+<class 'float'>
+
+3.Логический тип (bool)             истина (true) или ложь (false), result - согласие 
+x=5
+y=10
+result=(x>3) and (y<9)  
+print(result)
+False
+
+4.Строковый тип (String)            текст или другая информация в ковычках
+name="Masha"
+age=26
+print(name,age)
+print(type(name))
+print(type(age))
+<class 'str'>
+<class 'int'>
+
+5.Пустой тип (Void)  
+x=None
+y=None
+print(type(x) or (y))         
+<class 'NoneType'>
+

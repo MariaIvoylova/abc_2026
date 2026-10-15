@@ -1,0 +1,33 @@
+# todo: добавьте во Flask маршруты для страниц (endpoint)
+- О компании
+- Контакты
+- Список постов
+
+
+from flask import Flask, render_template  # import render_template для шаблонов
+
+app = Flask(__name__)
+
+# Маршрут для страницы «О компании»
+@app.route('/about')
+def about():
+    return render_template('about.html', company_info="Информация о компании")
+
+# Маршрут для страницы «Контакты»
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', contacts="Свяжитесь с нами: email@example.com")
+
+# Маршрут для отображения списка постов
+@app.route('/posts')
+def posts():
+    # Здесь вы должны получить список постов из базы данных или другого источника
+    posts = [
+        {'id': 1, 'title': 'Пост 1', 'content': 'Текст поста 1'},
+        {'id': 2, 'title': 'Пост 2', 'content': 'Текст поста 2'},
+        {'id': 3, 'title': 'Пост 3', 'content': 'Текст поста 3'}
+    ]
+    return render_template('posts.html', posts=posts)
+
+if __name__ == '__main__':
+    app.run(debug=True)
